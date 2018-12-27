@@ -24,25 +24,17 @@ module.exports = class extends Generator {
 
   initializing() {
     this.log(
-      yosay(
-        `Welcome to the rad ${chalk.red(
-          "generator-lerna-typescript"
-        )} generator!`
-      )
+      yosay(`Welcome to the rad ${chalk.red("lerna-typescript")} generator!`)
     );
 
-    // This.composeWith(require.resolve('../classlib'), { arguments: ['Greeter'] });
-
-    this.log(chalk.gray("Coming right up"));
+    this.composeWith(require.resolve("../package"), { arguments: ["greeter"] });
 
     this.cwd = path.basename(process.cwd());
   }
 
   writing() {
     const context = {
-      appname: Case.kebab(this.cwd),
-      genstamp: new Date().toString(),
-      workbox: this.workbox
+      appname: Case.kebab(this.cwd)
     };
     this.fs.copy(
       this.templatePath("_gitignore"),

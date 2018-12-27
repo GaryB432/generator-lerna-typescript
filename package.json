@@ -1,12 +1,10 @@
 {
   "name": "generator-lerna-typescript",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "get started with Lerna using TypeScript",
-  "homepage": "",
   "author": {
     "name": "Gary Bortosky",
-    "email": "garybort@gmail.com",
-    "url": ""
+    "email": "garybort@gmail.com"
   },
   "files": [
     "generators"
