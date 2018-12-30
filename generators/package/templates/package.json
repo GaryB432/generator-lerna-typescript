@@ -1,11 +1,11 @@
 {
   "name": "<%= packageName %>",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "files": [
     "lib"
   ],
-  "private": true,
+  "private": false,
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
