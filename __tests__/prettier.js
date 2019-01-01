@@ -11,8 +11,6 @@ describe("generator-lerna-typescript:prettier", () => {
   });
 
   it("creates files", () => {
-    assert.file([
-      "package.json"
-    ]);
+    assert.file(["package.json"]);
   });
 });
