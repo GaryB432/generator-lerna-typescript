@@ -7,14 +7,16 @@ describe("generator-lerna-typescript:package", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/package"))
-      .withArguments("tester")
+      .withArguments("MyTester")
       .withPrompts({ someAnswer: true });
   });
 
   it("creates files", () => {
     assert.file([
-      "packages/tester/package.json",
-      "packages/tester/tsconfig.json"
+      "packages/my-tester/__tests__/index.spec.ts",
+      "packages/my-tester/src/index.ts",
+      "packages/my-tester/package.json",
+      "packages/my-tester/tsconfig.json"
     ]);
   });
 });

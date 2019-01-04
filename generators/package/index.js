@@ -1,6 +1,5 @@
 "use strict";
 const Generator = require("yeoman-generator");
-const chalk = require("chalk");
 const path = require("path");
 const Case = require("case");
 
@@ -14,21 +13,11 @@ module.exports = class extends Generator {
     });
   }
 
-  initializing() {
-    this.log(chalk.gray(`${this.options.packageName} coming right up`));
-    // This.cwd = path.basename(process.cwd());
-  }
-
   writing() {
-    const pfn = fname => path.join("packages", this.options.packageName, fname);
     const context = {
       packageName: Case.kebab(this.options.packageName)
     };
-    this.fs.copyTpl(
-      this.templatePath("tsconfig.json"),
-      this.destinationPath(pfn("tsconfig.json")),
-      context
-    );
+    const pfn = fname => path.join("packages", context.packageName, fname);
     this.fs.copyTpl(
       this.templatePath("__tests__/index.spec.ts"),
       this.destinationPath(pfn("__tests__/index.spec.ts")),
@@ -45,7 +34,7 @@ module.exports = class extends Generator {
       context
     );
     this.fs.copyTpl(
-      this.templatePath("tsconfig.json"),
+      this.templatePath("_tsconfig.json"),
       this.destinationPath(pfn("tsconfig.json")),
       context
     );
