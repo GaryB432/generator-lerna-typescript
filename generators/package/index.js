@@ -29,7 +29,7 @@ module.exports = class extends Generator {
       context
     );
     this.fs.copyTpl(
-      this.templatePath("package.json"),
+      this.templatePath("_package.json"),
       this.destinationPath(pfn("package.json")),
       context
     );

@@ -34,7 +34,7 @@ module.exports = class extends Generator {
       this.destinationPath("lerna.json")
     );
     this.fs.copy(
-      this.templatePath("package.json"),
+      this.templatePath("_package.json"),
       this.destinationPath("package.json")
     );
     this.fs.copyTpl(
@@ -51,8 +51,12 @@ module.exports = class extends Generator {
       this.destinationPath("tslint.json")
     );
   }
-
+  
   install() {
     this.installDependencies({ npm: true, bower: false, yarn: false });
+  }
+  
+  end() {
+    this.log(`Create a new package with ${chalk.green("yo lerna-typescript:package my-new-package")}.`);
   }
 };
