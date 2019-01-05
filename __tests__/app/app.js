@@ -6,19 +6,22 @@ const helpers = require("yeoman-test");
 describe("generator-lerna-typescript:app", () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, "../generators/app"))
-      .withPrompts({ someAnswer: true });
+      .run(path.join(__dirname, "../../generators/app"))
+      .withPrompts({ independent: false });
   });
 
   it("creates files", () => {
     assert.file([
       ".gitignore",
       "jest.config.js",
-      "lerna.json",
       "package.json",
       "README.md",
       "tsconfig.json",
       "tslint.json"
     ]);
+  });
+
+  it("has dependent version", () => {
+    assert.jsonFileContent("lerna.json", { version: "0.0.0" });
   });
 });

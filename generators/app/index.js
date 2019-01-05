@@ -6,6 +6,18 @@ const Case = require("case");
 const path = require("path");
 
 module.exports = class extends Generator {
+  async prompting() {
+    const answers = await this.prompt([
+      {
+        type: "confirm",
+        name: "independent",
+        message: "Version packages independently?",
+        default: false
+      }
+    ]);
+    this.answers = answers;
+  }
+
   initializing() {
     this.log(
       yosay(`Welcome to the rad ${chalk.red("lerna-typescript")} generator!`)
@@ -29,10 +41,14 @@ module.exports = class extends Generator {
       this.templatePath("jest.config.js"),
       this.destinationPath("jest.config.js")
     );
-    this.fs.copy(
-      this.templatePath("lerna.json"),
-      this.destinationPath("lerna.json")
-    );
+
+    const lernaJson = {
+      packages: ["packages/*", "tools/*"],
+      version: this.answers.independent ? "independent" : "0.0.0"
+    };
+
+    this.fs.extendJSON(this.destinationPath("lerna.json"), lernaJson);
+
     this.fs.copy(
       this.templatePath("_package.json"),
       this.destinationPath("package.json")
