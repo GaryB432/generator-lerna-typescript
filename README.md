@@ -1,4 +1,7 @@
-# generator-lerna-typescript [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-lerna-typescript
+
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
 > Get started with Lerna using TypeScript
 
 ## Installation
@@ -14,6 +17,24 @@ Then generate your new project:
 
 ```bash
 yo lerna-typescript
+```
+
+Your project will be generated with a sample package. Generate another new package whenever you want with:
+
+```bash
+yo lerna-typescript:package my-new-package
+```
+
+Build your project:
+
+```bash
+lerna run build
+```
+
+Test your project:
+
+```bash
+npm test
 ```
 
 ## License
