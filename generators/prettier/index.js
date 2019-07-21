@@ -8,7 +8,7 @@ module.exports = class extends Generator {
         format: `prettier --write "**/*.ts"  "!**/lib/**"`
       },
       devDependencies: {
-        prettier: "^1.15.3"
+        prettier: "^1.18.2"
       },
       prettier: {
         printWidth: 100,
