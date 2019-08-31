@@ -6,6 +6,5 @@ describe('<%= packageName %> module', () => {
   });
   it('should greet', () => {
     expect(greet('world')).toEqual('<%= packageName %> says: hello to world');
-  })
-
-})
+  });
+});

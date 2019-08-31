@@ -25,6 +25,7 @@ module.exports = class extends Generator {
 
     this.composeWith(require.resolve("../package"), { arguments: ["greeter"] });
     this.composeWith(require.resolve("../prettier"));
+    this.composeWith(require.resolve("../eslint"));
 
     this.cwd = path.basename(process.cwd());
   }

@@ -12,6 +12,7 @@ describe("generator-lerna-typescript:app", () => {
 
   it("creates files", () => {
     assert.file([
+      ".eslintrc.js",
       ".gitignore",
       "jest.config.js",
       "package.json",
