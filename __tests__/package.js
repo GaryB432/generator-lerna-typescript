@@ -19,4 +19,10 @@ describe("generator-lerna-typescript:package", () => {
       "packages/my-tester/tsconfig.json"
     ]);
   });
+
+  it("contains prepare script", () => {
+    assert.jsonFileContent("packages/my-tester/package.json", {
+      scripts: { prepare: "npm run build" }
+    });
+  });
 });
