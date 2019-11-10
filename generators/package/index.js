@@ -1,7 +1,7 @@
 "use strict";
+const utils = require("../../utils");
 const Generator = require("yeoman-generator");
 const path = require("path");
-const Case = require("case");
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -13,19 +13,8 @@ module.exports = class extends Generator {
     });
   }
 
-  _getPackageInfo(input) {
-    var parts = input.split("/");
-    if (parts.length === 2 && parts[0].startsWith("@")) {
-      var scope = Case.kebab(parts[0].slice(1));
-      var pname = Case.kebab(parts[1]);
-      return { scope: scope, name: pname };
-    }
-    var name = Case.kebab(input);
-    return { name: name };
-  }
-
   writing() {
-    const pkgInfo = this._getPackageInfo(this.options.packageName);
+    const pkgInfo = utils.getPackageInfo(this.options.packageName);
     const context = {
       packageName: pkgInfo.scope
         ? `@${pkgInfo.scope}/${pkgInfo.name}`

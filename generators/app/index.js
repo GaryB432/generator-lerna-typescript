@@ -23,7 +23,9 @@ module.exports = class extends Generator {
       yosay(`Welcome to the rad ${chalk.red("lerna-typescript")} generator!`)
     );
 
-    this.composeWith(require.resolve("../package"), { arguments: ["greeter"] });
+    this.composeWith(require.resolve("../package"), {
+      arguments: ["@myscope/greeter"]
+    });
     this.composeWith(require.resolve("../prettier"));
     this.composeWith(require.resolve("../eslint"));
 
