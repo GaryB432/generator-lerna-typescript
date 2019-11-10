@@ -7,7 +7,7 @@ describe("generator-lerna-typescript:package", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/package"))
-      .withArguments("MyTester")
+      .withArguments("@MyScope/MyTester")
       .withPrompts({ someAnswer: true });
   });
 
@@ -23,6 +23,12 @@ describe("generator-lerna-typescript:package", () => {
   it("contains prepare script", () => {
     assert.jsonFileContent("packages/my-tester/package.json", {
       scripts: { prepare: "npm run build" }
+    });
+  });
+
+  it("is named properly", () => {
+    assert.jsonFileContent("packages/my-tester/package.json", {
+      name: "@my-scope/my-tester"
     });
   });
 });
