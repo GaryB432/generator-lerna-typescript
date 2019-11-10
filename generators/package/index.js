@@ -43,7 +43,7 @@ module.exports = class extends Generator {
       author: "",
       license: "ISC",
       devDependencies: {
-        typescript: "^3.2.2"
+        typescript: "^3.7.2"
       }
     };
 
