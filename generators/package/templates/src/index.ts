@@ -1,4 +1,4 @@
-// add another package with `yo lerna-typescript:package my-new-package` instead of `lerna create`
+// add another package with `yo lerna-typescript:package @myscope/my-new-package` instead of `lerna create`
 
 export function greet(name: string): string {
   return `<%= packageName %> says: hello to ${name}`;

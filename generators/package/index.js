@@ -13,9 +13,24 @@ module.exports = class extends Generator {
     });
   }
 
+  _getPackageInfo(input) {
+    var parts = input.split("/");
+    if (parts.length === 2 && parts[0].startsWith("@")) {
+      var scope = Case.kebab(parts[0].slice(1));
+      var pname = Case.kebab(parts[1]);
+      return { scope: scope, name: pname };
+    }
+    var name = Case.kebab(input);
+    return { name: name };
+  }
+
   writing() {
+    const pkgInfo = this._getPackageInfo(this.options.packageName);
     const context = {
-      packageName: Case.kebab(this.options.packageName)
+      packageName: pkgInfo.scope
+        ? `@${pkgInfo.scope}/${pkgInfo.name}`
+        : pkgInfo.name,
+      folder: pkgInfo.name
     };
 
     const lernaJson = this.fs.readJSON("lerna.json", {
@@ -24,7 +39,8 @@ module.exports = class extends Generator {
 
     const packageJson = {
       name: context.packageName,
-      version: lernaJson.version === "independent" ? "0.0.0" : lernaJson,
+      version:
+        lernaJson.version === "independent" ? "0.0.0" : lernaJson.version,
       description: "",
       files: ["lib"],
       private: false,
@@ -42,7 +58,7 @@ module.exports = class extends Generator {
       }
     };
 
-    const pfn = fname => path.join("packages", context.packageName, fname);
+    const pfn = fname => path.join("packages", context.folder, fname);
     this.fs.copyTpl(
       this.templatePath("__tests__/index.spec.ts"),
       this.destinationPath(pfn("__tests__/index.spec.ts")),

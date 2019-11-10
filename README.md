@@ -22,7 +22,7 @@ yo lerna-typescript
 Your project will be generated with a sample package. Generate another new package whenever you want with:
 
 ```bash
-yo lerna-typescript:package my-new-package
+yo lerna-typescript:package @myscope/my-new-package
 ```
 
 Build your project:
