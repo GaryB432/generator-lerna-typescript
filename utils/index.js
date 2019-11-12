@@ -7,7 +7,9 @@ function getPackageInfo(input) {
     var pname = Case.kebab(parts[1]);
     return { scope: scope, name: pname };
   }
+
   var name = Case.kebab(input);
   return { name: name };
 }
+
 exports.getPackageInfo = getPackageInfo;
