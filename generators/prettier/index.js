@@ -9,15 +9,14 @@ module.exports = class extends Generator {
       },
       devDependencies: {
         prettier: "^1.19.1"
-      },
-      prettier: {
-        printWidth: 100,
-        singleQuote: true,
-        trailingComma: "es5"
       }
     };
 
     this.fs.extendJSON(this.destinationPath("package.json"), pkgJson);
+    this.fs.copy(
+      this.templatePath("_prettierrc"),
+      this.destinationPath(".prettierrc")
+    );
   }
 
   install() {
