@@ -1,6 +1,6 @@
 # generator-lerna-typescript
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > Get started with Lerna using TypeScript
 
@@ -46,5 +46,3 @@ ISC © [Gary Bortosky]()
 [npm-url]: https://npmjs.org/package/generator-lerna-typescript
 [travis-image]: https://travis-ci.com/GaryB432/generator-lerna-typescript.svg?branch=master
 [travis-url]: https://travis-ci.com/GaryB432/generator-lerna-typescript
-[daviddm-image]: https://david-dm.org/GaryB432/generator-lerna-typescript.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/GaryB432/generator-lerna-typescript
