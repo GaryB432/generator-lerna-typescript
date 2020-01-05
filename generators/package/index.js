@@ -49,12 +49,12 @@ module.exports = class extends Generator {
 
     const pfn = fname => path.join("packages", context.folder, fname);
     this.fs.copyTpl(
-      this.templatePath("__tests__/index.spec.ts"),
+      this.templatePath("__tests__/index.spec.ts.template"),
       this.destinationPath(pfn("__tests__/index.spec.ts")),
       context
     );
     this.fs.copyTpl(
-      this.templatePath("src/index.ts"),
+      this.templatePath("src/index.ts.template"),
       this.destinationPath(pfn("src/index.ts")),
       context
     );

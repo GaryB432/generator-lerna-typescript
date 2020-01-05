@@ -41,7 +41,7 @@ module.exports = class extends Generator {
       this.destinationPath(".gitignore")
     );
     this.fs.copy(
-      this.templatePath("jest.config.js"),
+      this.templatePath("jest.config.js.template"),
       this.destinationPath("jest.config.js")
     );
 
@@ -74,7 +74,7 @@ module.exports = class extends Generator {
   end() {
     this.log(
       `Create a new package with ${chalk.green(
-        "yo lerna-typescript:package my-new-package"
+        "yo lerna-typescript:package @my-scope/my-new-package"
       )}.`
     );
   }
