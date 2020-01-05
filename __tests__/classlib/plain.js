@@ -6,7 +6,7 @@ const helpers = require("yeoman-test");
 describe("generator-lerna-typescript:classlib", () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, "../generators/classlib"))
+      .run(path.join(__dirname, "../../generators/classlib"))
       .withArguments(["MyFunProject", "SomeClass"])
       .withPrompts({ someAnswer: true });
   });

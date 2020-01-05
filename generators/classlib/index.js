@@ -27,12 +27,12 @@ module.exports = class extends Generator {
     };
     const pfn = fname => path.join("packages", context.packageName, fname);
     this.fs.copyTpl(
-      this.templatePath(`lib.spec.txt`),
+      this.templatePath(`lib.spec.ts.template`),
       this.destinationPath(pfn(`__tests__/${context.className}.spec.ts`)),
       context
     );
     this.fs.copyTpl(
-      this.templatePath(`lib.txt`),
+      this.templatePath(`lib.ts.template`),
       this.destinationPath(pfn(`src/${context.className}.ts`)),
       context
     );
